@@ -92,7 +92,7 @@ namespace PrjBankATM
                         break;
                 }
             }
-        }                                                                     //IP Man
+        } 
         public static void displayAvg()
         {
             decimal totalavg = 0;
@@ -107,7 +107,7 @@ namespace PrjBankATM
             }
             decimal avgBal = totalavg / nbclient;
             Console.WriteLine("The average balance of " + nbclient + " account is: " + avgBal);
-        }          //DavidK
+        } 
         public static void displayTotal()
         {
             decimal total = 0;
@@ -116,7 +116,7 @@ namespace PrjBankATM
                 total = tabclient[i].balance + total;
             }
             Console.WriteLine("The total balance of " + nbclient + " account is: " + total + "$");
-        }         //DavidK
+        } 
         public static void sortClients()
         {
             Console.WriteLine(" 1 - By balance (Ascending)");
@@ -133,7 +133,7 @@ namespace PrjBankATM
                 case 1:
                     Client[] sorted1 = tabclient.OrderBy(client => client.balance)
                            .ThenBy(client => client.lname)
-                           .ThenBy(client => client.fname) //thenby có nghĩa là nếu balance = nhau thì sort theo name
+                           .ThenBy(client => client.fname) 
                            .ToArray();
                     Console.WriteLine("Order by balance (Ascending)");
                     if (sorted1.Length == 0)
@@ -296,7 +296,7 @@ namespace PrjBankATM
                     Console.ReadKey();
                     break;
             }
-        }         //David Alejandro
+        }  
         public static void withdraw()
         {
             decimal withd;
@@ -340,7 +340,7 @@ namespace PrjBankATM
                 Console.WriteLine("Transaction failed");
                 Console.WriteLine("Cannot find your account.");
             }
-        }        //DavidK
+        }
         public static void deposit()
         {
             decimal depos;
@@ -366,7 +366,7 @@ namespace PrjBankATM
                 Console.WriteLine("Transaction failed");
                 Console.WriteLine("Cannot find your account.");
             }
-        }        //DavidK
+        }
         public static void displayOneAccount()
         {
             bool found = false;
@@ -386,7 +386,7 @@ namespace PrjBankATM
             {
                 Console.WriteLine("Your account does not exist. Please try again.");
             }
-        }        //David Alejandro
+        }
         public static void removeAcc()
         {
             Int16 num2d;
@@ -429,7 +429,7 @@ namespace PrjBankATM
             }
             writetofile();
 
-        }        //DavidK
+        }  
         public static void addAcc()
         {
             Random rnd = new Random();
@@ -472,7 +472,7 @@ namespace PrjBankATM
                 Console.WriteLine("The list is full");
                 Console.WriteLine("Cannot add anyone right now.");
             }
-        }        //DavidK
+        } 
         public static Int16 getChoice()
         {
             Console.WriteLine(" 1 - Add a bank account");
@@ -489,7 +489,7 @@ namespace PrjBankATM
                 choice = Validate.validInt16("Enter your choice (1 - 9): ");
             } while (choice < 1 || choice > 9);
             return choice;
-        }        //David Alejandro
+        } 
         public static bool checkNewAccExist(Int16 input)
         {
             for (Int16 i = 0; i < nbclient; i++)
@@ -500,7 +500,7 @@ namespace PrjBankATM
                 }
             }
             return false;
-        }                   //IP Man
+        }  
         public static void writetofile()
         {
             StreamWriter myfile2 = new StreamWriter(FILE_PATH);
@@ -512,7 +512,7 @@ namespace PrjBankATM
                 myfile2.WriteLine(tabclient[i].balance);
             }
             myfile2.Close();
-        }                                   //IP Man
+        }         
         public static void readfromfile()
         {
             StreamReader myfile = new StreamReader(FILE_PATH);
@@ -527,13 +527,13 @@ namespace PrjBankATM
             }
             nbclient = i;
             myfile.Close();
-        }                                  //IP Man
+        }          
         public static void disptitle(string title, string subtitle)
         {
             Console.WriteLine("\t\t" + title.ToUpper());
             Console.WriteLine("\t" + subtitle);
             Console.WriteLine();
-        }        //IP Man
+        }  
         public static void goodbye()
         {
             Console.WriteLine("\t _____           _ _            ");
@@ -543,6 +543,6 @@ namespace PrjBankATM
             Console.WriteLine("\t                      |___|    ");
             writetofile();
 
-        }                                       //IP Man
+        }      
     }
 }
